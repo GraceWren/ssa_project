@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegistrationForm
+#from .forms import topUpForm
 import requests
 from django.conf import settings
 def register(request):
@@ -58,3 +59,22 @@ def logout_view(request):
     logout(request)
     messages.success(request, "Successfully logged out.")
     return redirect('users:login')
+
+#@login_required
+#def top_up(request):
+    #if request.method == 'POST':
+        #form = topUpForm(request.POST, user=request.user)
+        #if form.is_valid():
+           # group = form.save()
+            #messages.success(request, f'Group "{group.name}" created successfully!')
+            #return redirect('users/users.html', group_id=group.id)
+    #else:
+        #form = topUpForm(user=request.user)
+    #return render(request, 'users/top_up.html', {'form': form})
+
+#@login_required
+#def transactions(request):
+    #if request.method == 'POST':
+        #form = topUpForm(request.POST, user=request.user)
+        #if form.is_valid():
+            #group = form.save()
